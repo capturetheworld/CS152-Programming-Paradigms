@@ -1,5 +1,5 @@
 object sequencecontrol {
-
+//PROBLEMS 1-6
   //problem1
   def kingdom(n: Int): Int = {
     if (n % 2 == 0) (if (n > 10) (if (n % 100 == 0) 1 else 2) else 3) else 4
@@ -90,6 +90,90 @@ object sequencecontrol {
   }
   printSums(3, 4)
 
+  //problem 7 in BlackJackX.scala files
+
+//  //problem 8 NOT WORKING!
+//  class Realm1Exception extends Exception {}
+//  class Realm2Exception extends Exception {}
+//  class Realm3Exception extends Exception {}
+//  import util.control.Breaks._
+//
+//  def realm1(n: Int): Int = { // = 1 if n belongs to realm 1, throws an exception otherwise
+//    if(n%2==1) 1 else throw new Realm1Exception()
+//  }
+//  def realm2(n: Int): Int = { // = 2 if n belongs to realm 2, throws an exception otherwise
+//    if(n%2==0 && n%3!=0 ) 2 else throw new Realm2Exception()
+//  }
+//  def realm3(n: Int): Int = { // = 3 if n belongs to realm 3, throws an exception otherwise
+//    if(n%6==0 || n%7==0) 3 else throw new Realm3Exception()
+//
+//
+//  }
+//  def realm(n: Int): Int = {  // = the realm of n
+//    var realm = 0
+//    breakable {
+//      try {
+//        realm1(n)
+//        realm = 1
+//      }
+//      catch {
+//        case e: Realm1Exception => println("Not in 1")
+//          break
+//      }
+//    }
+//    breakable {
+//      try {
+//        realm1(n)
+//        realm = 2
+//      }
+//      catch {
+//        case e: Realm2Exception => println("Not in 2")
+//          break
+//      }
+//    }
+//    breakable {
+//      try {
+//        realm1(n)
+//        realm = 3
+//      }
+//      catch {
+//        case e: Realm3Exception => println("Not in 3")
+//          break
+//      }
+//    }
+//    if(realm>0) realm else 0
+//
+//
+//    }
+//
+//
+//
+//
+//  realm(-5)
+//  realm(3)
+//  realm(8)
+//  realm(12)
+//  realm(14)
+
+
+  //problem 9
+
+  import scala.math._
+
+  def sqrt(x: Double) = {
+    if (x < 0) None else Some(math.sqrt(x))
+  }
+
+  def log(x: Double) = {
+    if (x <= 0) None else Some(math.log(x))
+  }
+
+  def sqrtLog(x: Int) = {
+    x match {
+      case x if x >= 0 =>  sqrt(log(x).get);
+      case _ => None
+    }
+  }
 
 
 }
