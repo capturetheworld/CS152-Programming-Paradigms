@@ -62,12 +62,32 @@ object Arithmetic {
     def lcm(n: Int, m: Int): Option[Int] = {
       // = None if n < 0 or m < 0
       // = smallest k such that n a,d m divide k
+      if (n < 0 || m<0) None
+      else {
+        var k = n * m
+        for (i <- 1 until n * m if k == n * m) {
+          if (i % m == 0 && i % n == 0) {
+            k = i
+          }
+        }
+        Option(k)
+      }
     }
 
-  //  def phi(n: Int): Option[Int] = {
-  //    // = None if n < 0
-  //    // = # of k <= n such that gcd(k, n) = 1
-  //  }
+    def phi(n: Int): Option[Int] = {
+      // = None if n < 0
+      // = # of k <= n such that gcd(k, n) = 1
+    if (n < 0) None
+    else {
+      var k = 0
+      for (i <- 1 until n) {
+        if (gcd(i, n).contains(1)) {
+          k = k + 1
+        }
+      }
+      Option(k)
+  }
+    }
 
 }
 
