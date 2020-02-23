@@ -200,6 +200,24 @@ object recursionSession{
   tailFib(7)
 
 
+  def combo(n: Int, r:Int): Int = {
+    if(r==0){
+      1
+    }
+    else if(n==r){
+      1
+    }
+    else{
+      combo(n-1,r-1) + combo(n-1,r)
+
+    }
+
+
+
+  }
+  combo(7,2)
+
+
 
 
 
