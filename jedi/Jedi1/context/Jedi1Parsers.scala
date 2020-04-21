@@ -15,8 +15,8 @@ import value._
 
 class Jedi1Parsers extends RegexParsers {
 
-  def expression: Parser[Expression] = declaration | conditional | disjunction | failure("Invalid expression")
-  //def expression: Parser[Expression] = declaration | equality | failure("Invalid expression")
+  //def expression: Parser[Expression] = declaration | conditional | disjunction | failure("Invalid expression")
+  def expression: Parser[Expression] = declaration | equality | failure("Invalid expression")
 
   def declaration: Parser[Declaration] = "def" ~ identifier ~ "=" ~ expression ^^ {
     case "def"~id~"="~exp => Declaration(id, exp)
@@ -49,9 +49,9 @@ class Jedi1Parsers extends RegexParsers {
 
   def inequality: Parser[Expression] = sum ~ opt(("<" | ">" | "!=") ~ sum) ^^ {
     case thisExp ~ None => thisExp
-    case thisExp ~ Some("<" ~ that) => FunCall(Identifier("less"), List[Expression](thisExp, that))
-    case thisExp ~ Some(">" ~ that) => FunCall(Identifier("more"), List[Expression](thisExp, that))
-    case thisExp ~ Some("!=" ~ that) => FunCall(Identifier("unequals"), List[Expression](thisExp, that))
+    case thisExp ~ Some("<" ~ that) => FunCall(Identifier("less than"), List[Expression](thisExp, that))
+    case thisExp ~ Some(">" ~ that) => FunCall(Identifier("greater than"), List[Expression](thisExp, that))
+    case thisExp ~ Some("!=" ~ that) => FunCall(Identifier("not equals"), List[Expression](thisExp, that))
   }
 
   //
@@ -67,10 +67,10 @@ class Jedi1Parsers extends RegexParsers {
   // sum ::= product ~ ("+" | "-") ~ product)*
   def sum: Parser[Expression] = product ~ rep(("+"|"-") ~ product ^^ {
     case "+"~s=>s
-    case "-"~s=> negate(s)
+//    case "-"~s=> negate(s)
   })^^{
     case p~Nil=> p
-    case p~rest=>FunCall(Identifier("add"), p::rest)
+   // case p~rest=>FunCall(Identifier("add"), p::rest)
   }
 
   // product ::= term ~ (("*" | "/") ~ term)*
@@ -87,7 +87,7 @@ class Jedi1Parsers extends RegexParsers {
     }
   }
 
-  def term: Parser[Expression]  = funCall | literal | "("~>expression<~")"
+  def term: Parser[Expression]  = literal | "("~>expression<~")"
 
   def literal = boole | real | integer | chars | identifier
 

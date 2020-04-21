@@ -11,7 +11,7 @@ import scala.io._
 object console {
   val parsers = new Jedi1Parsers // for now
   val globalEnv = new Environment
-  var verbose = true
+  var verbose = false
 
   def execute(cmmd: String): String = {
     val tree = parsers.parseAll(parsers.expression, cmmd)
@@ -102,8 +102,7 @@ object console {
         }
         case e: Exception => {
           println(e.getMessage)
-          //more = false
-          if (verbose) e.printStackTrace()
+          more = false
         }
       } finally {
         Console.flush

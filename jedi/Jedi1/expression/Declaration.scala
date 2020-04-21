@@ -3,7 +3,6 @@ import  value.Notification
 import value.Value
 import context.Environment
 
-//def x = 3 * 2
 case class Declaration(val id: Identifier, val exp: Expression) extends SpecialForm {
   override def toString = "Declaration id" + id + "expression = " + exp
   def execute(env: Environment): Value = {
