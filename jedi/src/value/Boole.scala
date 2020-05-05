@@ -7,6 +7,10 @@ case class Boole(val value: Boolean) extends Literal with Equals {
   def &&(other: Boole) = Boole(this.value && other.value)
   def ||(other: Boole) = Boole(this.value || other.value)
 
+  override def toString = {
+    this.value.toString
+  }
+
 }
 
 

@@ -4,8 +4,8 @@ import scala.collection.mutable._
 import value._
 import expression._
 
-class Environment(var extension: Environment = null)
-  extends HashMap[Identifier, Value] with Value {
+class Environment(var extension: Environment = null) //recursive data structure, chain env extensions
+  extends HashMap[Identifier, Value] with Value { //associates identifiers def pi = 3.14 with values
 
   // used by closures to bind parameters to arguments
   def bulkPut(params: List[Identifier], args: List[Value]) {
@@ -15,11 +15,12 @@ class Environment(var extension: Environment = null)
 
   override def contains(name: Identifier): Boolean = {
     super.contains(name) || (extension != null && extension.contains(name))
+    //looks inside hashmap and sees if that name is in there, look in extensions
   }
 
-  override def apply(name: Identifier): Value = {
-    if (super.contains(name)) super.apply(name)
-    else if (extension != null) extension.apply(name)
-    else throw new UndefinedException(name)
+  override def apply(name: Identifier): Value = { //searching environment, look up identifier
+    if (super.contains(name)) super.apply(name) //if hashmap contains name, search hashmap
+    else if (extension != null) extension.apply(name) //recursively call name
+    else throw new UndefinedException(name) //can't find the identifier, so we're in global env throw err
   }
 }
