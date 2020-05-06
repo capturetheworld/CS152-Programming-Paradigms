@@ -1,3 +1,7 @@
+//EXAMPLE ARGS: src/Jedi1Tests.txt
+//thunks are freeze, remember environment pass by name
+//text is dynamic scoping, delayed, and uses thawing environment
+
 package context
 
 import value._
@@ -9,7 +13,7 @@ import scala.io._
  * console.main launches repl or executes a Jedi file
  */
 object console {
-  val parsers = new Jedi2Parsers // for now
+  val parsers = new Jedi3Parsers // for now
   val globalEnv = new Environment
   var verbose = true
 
