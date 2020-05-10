@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8c6bd4d9-a0df-4d8d-b08f-921d234e45a8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../jedi/src/expression/Expression.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../jedi/src/expression/Expression.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jedi/src/expression/Iteration.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../jedi/src/expression/Iteration.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testing/HMMABPass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testing/HmmAlphaBeta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testing/META-INF/testing.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HMMABPass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HmmAlphaBeta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1bNmXXCl8J6f3fxE0YuPYlW7pa8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunManager" selected="Application.HmmAlphaBeta">
+    <configuration name="HMMABPass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HMMABPass" />
+      <module name="testing" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HmmAlphaBeta" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HmmAlphaBeta" />
+      <module name="testing" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.HmmAlphaBeta" />
+        <item itemvalue="Application.HMMABPass" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8c6bd4d9-a0df-4d8d-b08f-921d234e45a8" name="Default Changelist" comment="" />
+      <created>1588480965191</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588480965191</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1187" height="133" key="GridCell.Tab.0.bottom" timestamp="1588668976597">
+      <screen x="0" y="23" width="1440" height="852" />
+    </state>
+    <state width="1187" height="133" key="GridCell.Tab.0.bottom/0.23.1440.852@0.23.1440.852" timestamp="1588668976597" />
+    <state width="1187" height="133" key="GridCell.Tab.0.center" timestamp="1588668976596">
+      <screen x="0" y="23" width="1440" height="852" />
+    </state>
+    <state width="1187" height="133" key="GridCell.Tab.0.center/0.23.1440.852@0.23.1440.852" timestamp="1588668976596" />
+    <state width="1187" height="133" key="GridCell.Tab.0.left" timestamp="1588668976596">
+      <screen x="0" y="23" width="1440" height="852" />
+    </state>
+    <state width="1187" height="133" key="GridCell.Tab.0.left/0.23.1440.852@0.23.1440.852" timestamp="1588668976596" />
+    <state width="1187" height="133" key="GridCell.Tab.0.right" timestamp="1588668976597">
+      <screen x="0" y="23" width="1440" height="852" />
+    </state>
+    <state width="1187" height="133" key="GridCell.Tab.0.right/0.23.1440.852@0.23.1440.852" timestamp="1588668976597" />
+  </component>
+</project>
