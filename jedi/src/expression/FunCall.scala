@@ -6,6 +6,7 @@ import scala.collection.mutable._
 
 //Identifiers are names of values things like add, sub, mul, div
 //operands are things like variable or numbers or LAMBDA
+//a funcall is add(3,4) can be thunks, texts, or regular expressions
 
 case class FunCall(val operator: Identifier, val operands: List[Expression] = Nil) extends Expression {
 

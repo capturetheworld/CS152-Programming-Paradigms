@@ -32,6 +32,12 @@ object alu {
       case "write" => write(args)
       case "prompt" => prompt(args)
       case "read" => read(args)
+      case "pair" => pair(args)
+      case "first" => first(args)
+      case "second" => second(args)
+      case "Some" => some(args)
+      case "content" => content(args)
+
       // store ops
       /*
       case "store" => store(args)
@@ -244,6 +250,27 @@ object alu {
   def read(vals: List[Value]): Value = { val result = io.StdIn.readDouble(); Real(result)}
   def prompt(vals: List[Value]): Value = { print("=> "); Notification.DONE }
 
+  private def pair(args: List[Value]) = {
+    val args0: Value = args(0).asInstanceOf[Value]
+    val args1: Value = args(1).asInstanceOf[Value]
+    Pair(new First(args0), new Second(args1))
+  }
+
+  private def first(args: List[Value]) = {
+    args(0).asInstanceOf[Pair].getFirst()
+  }
+
+  private def second(args: List[Value]) = {
+    args(0).asInstanceOf[Pair].getSecond()
+  }
+  private def some(args: List[Value]) = {
+    if (args.length != 1 || !args(0).isInstanceOf[Value]) throw new TypeException("Needs to be SomeValue with only 1 input")
+    SomeValue(args(0))
+  }
+  private def content(args: List[Value]) = {
+    if (args.length != 1 || !args(0).isInstanceOf[Value]) throw new TypeException("Needs to be SomeValue with only 1 input")
+    args(0).asInstanceOf[SomeValue].content
+  }
 
   // etc.
 }

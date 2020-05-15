@@ -2,7 +2,7 @@ package context
 
 import scala.util.parsing.combinator._
 import context._
-import expression._
+import expression.{Literal, _}
 import value._
 /*
  * Notes:
@@ -89,7 +89,7 @@ class Jedi1Parsers extends RegexParsers {
 
   def term: Parser[Expression]  = funCall | literal | "("~>expression<~")"
 
-  def literal = boole | real | integer | chars | identifier
+  def literal = boole | real | none | integer | chars | identifier
 
 
   // chars ::= any characters bracketed by quotes
@@ -112,6 +112,10 @@ class Jedi1Parsers extends RegexParsers {
   def boole: Parser[Boole] = """true|false""".r ^^ {
     case booleans => Boole(booleans.toBoolean)
   }
+  // "None" ::= None
+  def none: Parser[Literal] = """None""".r ^^ {
+    case none => NoneValue
+  }
 
   // identifier ::= [a-zA-Z][a-zA-Z0-9]*
   def identifier: Parser[Identifier] = """[a-zA-Z][a-zA-Z0-9]*""".r ^^ {
@@ -129,5 +133,7 @@ class Jedi1Parsers extends RegexParsers {
     case "(" ~ None ~ ")" => Nil
 
   }
+
+
 
 }

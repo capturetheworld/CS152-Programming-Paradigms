@@ -5,5 +5,6 @@ object flags {
   val BY_VALUE = 0
   val BY_NAME = 1 //thunk
   val BY_TEXT = 2 //text - global
+
 }
 
