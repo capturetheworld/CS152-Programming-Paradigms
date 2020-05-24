@@ -1,0 +1,146 @@
+                    Final Exam Solution Sheet
+
+********************
+********************
+Problem 1
+
+   Part 1 (turned in as a jpeg)
+   
+   Part 2 Static scope foo(2 * a) = ?
+   
+   Part 3 Dynamic scope foo(2 * a) = ?
+   
+IAN SOOHOO
+
+1. PART 1 - VIEW ATTACHMENT
+1. PART 2 - foo(2 * a) = 145 static scope
+1. PART 3 - foo(2 * a) = 130 dynamic scope
+//answers based on the implementation in Jedi
+
+
+********************
+********************
+Problem 2: Jedi definition of paramPassing:
+
+def paramPassing = lambda(n) {isValue(n)}
+
+
+
+
+********************
+********************
+Problem 3
+
+   Part 1: Definition of Transaction
+
+   import scala.collection.mutable.ListBuffer
+
+class Transaction(val sourceID: Int, val destID: Int, val amount: Double)  {
+
+
+}
+
+
+object Transaction {
+  def apply(first: Int, second: Int, dollar: Double) = new Transaction(first, second, dollar)
+
+
+
+}
+
+var block = List(
+  Transaction(4, 5, 200), // transfer $200 from account 4 to account 5
+  Transaction(4, 6, 100), // transfer $100 from account 4 to account 6
+  Transaction(5, 6, 30),  // transfer $30 from account 5 to account 6
+  Transaction(6, 4, 50))  // transfer $50 from account 6 to account 4
+
+getBalance(4, block)                            //> res0: Double = -250.0
+getBalance(5, block)                            //> res1: Double = 170.0
+getBalance(6, block)                            //> res2: Double = 80.0
+
+   
+***********
+   Part 2: Definition of getBalance
+
+def getBalance(acct: Int, block: List[Transaction]): Double ={
+  var credits = block.filter(isCredits(_,acct):Boolean).map(getAmmount _).reduce(_ + _)
+  var debits = block.filter(isDebits(_,acct):Boolean).map(getAmmount _).reduce(_ + _)
+  credits-debits
+
+}
+// balance of acct after all transactions in block have been executed assuming initial balance was $0.00.
+def isCredits(toTest: Transaction, account: Int) =  {
+  if (toTest.destID == account) true else false
+}
+def isDebits(toTest: Transaction, account: Int) =  {
+  if (toTest.sourceID == account) true else false
+}
+def getAmmount(toTest: Transaction) =  {
+  toTest.amount
+}
+
+
+   
+********************
+********************
+Problem 4
+
+   Part 1: Definitions of OptionValue, SomeValue, and None
+
+package value
+import expression.Literal
+
+class NoneValue() extends OptionValue with Literal {
+  override def toString = "NONE"
+}
+
+object NoneValue {
+  def apply() = new NoneValue()
+}
+
+
+package value
+
+case class SomeValue(var content: Value) extends OptionValue {
+  override def toString = "Some(" + content.toString() + ")"
+
+}
+
+package value
+
+trait OptionValue extends Value{
+
+}
+
+
+
+
+
+
+   
+***********
+   Part 2: Definitions of None and content functions from alu:
+
+  private def some(args: List[Value]) = {
+    if (args.length != 1 || !args(0).isInstanceOf[Value]) throw new TypeException("Needs to be SomeValue with only 1 input")
+    SomeValue(args(0))
+  }
+  private def content(args: List[Value]) = {
+    if (args.length != 1 || !args(0).isInstanceOf[Value]) throw new TypeException("Needs to be SomeValue with only 1 input")
+    args(0).asInstanceOf[SomeValue].content
+  }
+   
+   
+
+***********
+   Part 3: Definitions of none and literal parsers from Jedi1Parsers:
+   //before identifier parser
+  def none: Parser[Literal] = """None""".r ^^ {
+    case none => NoneValue()
+  }
+
+   
+   
+********************
+********************
+********************
